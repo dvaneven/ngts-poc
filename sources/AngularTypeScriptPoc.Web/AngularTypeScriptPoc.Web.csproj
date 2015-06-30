@@ -121,9 +121,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Common\BundleConfig.cs" />
     <Compile Include="Common\FilterConfig.cs" />
     <Compile Include="Common\RouteConfig.cs" />

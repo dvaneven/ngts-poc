@@ -1,0 +1,44 @@
+﻿
+<div class="login-box">
+
+	<div class="login-box-header">
+		<h1 class="text-right">Aanmelden</h1>
+	</div>
+
+	<div class="login-box-content container-fluid">
+
+		<form id="form" method="POST" ng-submit="login.login(form)" name="form" role="form" novalidate autocomplete="on">
+
+			<div class="alert alert-danger" ng-show="login.message">
+				<span class="glyphicon glyphicon-lock"></span>
+				{{ login.message }}
+			</div>
+
+			<div class="form-group" ng-class="{ 'has-error': login.message }">
+				<label for="username">Gebruikersnaam:</label>
+				<input id="username" name="username" type="text" placeholder="Gebruikersnaam" autocomplete="on" class="form-control" />
+			</div>
+
+			<div class="form-group" ng-class="{ 'has-error': login.message }">
+				<label for="password">Wachtwoord:</label>
+				<input id="password" name="password" type="password" placeholder="Wachtwoord" autocomplete="on" class="form-control" />
+			</div>
+
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" checked="checked" ng-model="login.rememberMe"> Onthoud mij
+				</label>
+			</div>
+
+			<div class="login-box-actions">
+				<button type="submit" class="btn btn-primary" ng-disabled="login.loginButtonDisabled">
+					Aanmelden
+					<span class="loader" ng-show="login.loginButtonDisabled"></span>
+				</button>
+			</div>
+
+		</form>
+
+	</div>
+
+</div>

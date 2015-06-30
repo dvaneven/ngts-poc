@@ -1,0 +1,10 @@
+﻿<div class="box">
+	<div class="box-header">
+		Afgewezigheid -
+		{{ editAbsence.absence.employee.firstName }} {{ editAbsence.absence.employee.lastName }}
+		({{ editAbsence.absence.beginDate | date:'dd/MM/yyyy' }} - {{ editAbsence.absence.endDate | date:'dd/MM/yyyy' }})
+	</div>
+	<div class="box-content">
+		<absence-form absence="editAbsence.absence" save="editAbsence.saveAbsence()" cancel="editAbsence.cancel()"></absence-form>
+	</div>
+</div>

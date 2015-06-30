@@ -1,0 +1,62 @@
+﻿<div class="box">
+	<div class="box-header">
+		Afgewezigheid -
+		{{ showAbsence.absence.employee.firstName }} {{ showAbsence.absence.employee.lastName }}
+		({{ showAbsence.absence.beginDate | date:'dd/MM/yyyy' }} - {{ showAbsence.absence.endDate | date:'dd/MM/yyyy' }})
+		<div class="pull-right">
+			<absence-status absence="showAbsence.absence"></absence-status>
+		</div>
+	</div>
+	<div class="box-content">
+
+		<div class="pull-right" ng-if="showAbsence.absenceIsPending()">
+			<button type="button" class="btn btn-success" ng-click="showAbsence.approveAbsence()">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				Goedkeuren
+			</button>
+			<button type="button" class="btn btn-danger" ng-click="showAbsence.rejectAbsence()">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				Afkeuren
+			</button>
+		</div>
+
+		<fieldset>
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label class="control-label">Werknemer</label>
+					<p class="form-control-static">{{ showAbsence.absence.employee.firstName }} {{ showAbsence.absence.employee.lastName }}</p>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="control-label">Type</label>
+					<p class="form-control-static">{{ showAbsence.absence.absenceType | absenceTypeText }}</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label class="control-label">Begindatum</label>
+					<p class="form-control-static">{{ showAbsence.absence.beginDate | date:'dd/MM/yyyy' }}</p>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="control-label">Einddatum</label>
+					<p class="form-control-static">{{ showAbsence.absence.endDate | date:'dd/MM/yyyy' }}</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-12">
+					<label class="control-label">Opmerking</label>
+					<p class="form-control-static">{{ showAbsence.absence.remark || 'Geen opmerking' }}</p>
+				</div>
+			</div>
+		</fieldset>
+
+		<div class="form-actions">
+			<button type="button" class="btn btn-success" ng-click="showAbsence.edit()">Wijzigen</button>
+			<button type="button" class="btn btn-danger" ng-click="showAbsence.remove()">Verwijderen</button>
+			<button type="button" class="btn btn-default" ng-click="showAbsence.back()">Terug</button>
+
+		</div>
+
+	</div>
+</div>

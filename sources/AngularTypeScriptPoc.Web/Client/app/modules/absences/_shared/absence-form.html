@@ -1,0 +1,44 @@
+﻿<form name="form" ng-submit="vm.saveAbsence(form)" autocomplete="off" novalidate>
+
+	<fieldset>
+		<div class="row">
+			<div class="form-group col-xs-6 col-sm-4 col-md-3" ng-class="{ 'has-error': form.employee.$invalid }">
+				<label for="employee" class="control-label required">Werknemer</label>
+				<select id="employee" name="employee" class="form-control" ng-options="employee.firstName + ' ' + employee.lastName for employee in vm.employees track by employee.id" ng-model="vm.absence.employee" required></select>
+			</div>
+
+			<div class="form-group col-xs-6 col-sm-4 col-md-3" ng-class="{ 'has-error': form.absenceType.$invalid }">
+				<label for="absenceType" class="control-label">Type</label>
+				<select id="absenceType" name="absenceType" class="form-control" ng-model="vm.absence.absenceType" 
+						ng-options="absenceType | absenceTypeText for absenceType in vm.absenceTypes" required></select>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-6 col-sm-2 col-md-2" ng-class="{ 'has-error': form.beginDate.$invalid }">
+				<label for="beginDate" class="control-label required">Begindatum</label>
+				<input type="text" id="beginDate" name="beginDate" class="form-control" ng-model="vm.absence.beginDate" required
+					   datepicker-popup is-open="vm.beginDatePickerOpen" ng-click="vm.toggleBeginDatePicker($event)" />
+			</div>
+
+			<div class="form-group col-xs-6 col-sm-2 col-md-2" ng-class="{ 'has-error': form.endDate.$invalid }">
+				<label for="endDate" class="control-label required">Einddatum</label>
+				<input type="text" id="endDate" name="endDate" class="form-control" ng-model="vm.absence.endDate" required
+					   datepicker-popup is-open="vm.endDatePickerOpen" ng-click="vm.toggleEndDatePicker($event)" />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-12 col-sm-8">
+				<label for="remark" class="control-label">Opmerking</label>
+				<textarea id="remark" name="remark" class="form-control" rows="3" ng-model="vm.absence.remark"></textarea>
+			</div>
+		</div>
+	</fieldset>
+
+	<div class="form-actions">
+		<button type="submit" class="btn btn-success">Bewaren</button>
+		<button type="button" class="btn btn-default" ng-click="vm.cancel()">Annuleren</button>
+	</div>
+
+</form>

@@ -1,0 +1,47 @@
+﻿<div class="box">
+	<div class="box-header">
+		Afwezigheden
+	</div>
+	<div class="box-content">
+
+		<div class="btn-toolbar form-group">
+			<div class="btn-group">
+				<button type="button" class="btn btn-success" ng-click="listAbsences.newAbsence()">
+					<span class="glyphicon glyphicon-plus"></span>
+					Nieuwe afwezigheid
+				</button>
+			</div>
+		</div>
+
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th style="width: 30%">Werknemer</th>
+					<th style="width: 20%">Type</th>
+					<th style="width: 20%">Begindatum</th>
+					<th style="width: 20%">Einddatum</th>
+					<th style="width: 10%">Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-show="listAbsences.absences == 0">
+					<td colspan="5">
+						Geen afwezigheden gevonden.
+					</td>
+				</tr>
+				<tr ng-repeat="absence in listAbsences.absences" ng-click="listAbsences.showAbsence(absence.id)" class="link">
+					<td>{{ absence.employee.firstName }} {{ absence.employee.lastName }}</td>
+					<td>{{ absence.absenceType | absenceTypeText }}</td>
+					<td>{{ absence.beginDate | date:'dd/MM/yyyy' }}</td>
+					<td>{{ absence.endDate | date:'dd/MM/yyyy' }}</td>
+					<td><absence-status absence="absence"></absence-status></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+
+
+

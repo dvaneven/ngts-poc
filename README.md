@@ -1,6 +1,6 @@
 ﻿#AngularJS 1.4 with TypeScript POC#
 
-A proof of concept of AngularJS 1.4 with TypeScript. Any similarties with already existing products are mere coincidence.
+A proof of concept of AngularJS 1.4 with TypeScript. Any similarities with already existing products are mere coincidence.
 
 - RESTful services with ASP.NET Web API
 - TypeScript 1.5
